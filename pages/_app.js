@@ -1,7 +1,7 @@
 import { SWRConfig } from 'swr'
 import { client } from '@/lib/client'
 
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 
 const fetcher = (query, variables) => client.request(query, variables)
 

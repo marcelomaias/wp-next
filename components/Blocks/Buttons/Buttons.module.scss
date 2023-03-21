@@ -1,0 +1,9 @@
+.coreButtons {
+    display: flex;
+    .justify-left {
+        justify-content: flex-start;
+    }
+    .justify-right {
+        justify-content: flex-end;
+    }
+}

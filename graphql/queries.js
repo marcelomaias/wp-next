@@ -12,3 +12,15 @@ export const GET_MAIN_NAV = gql`
     }
   }
 `
+
+export const GET_HOME_CONTENT = gql`
+  query get_home_content {
+    nodeByUri(uri: "/") {
+      ... on Page {
+        id
+        title
+        blocksJSON
+      }
+    }
+  }
+`

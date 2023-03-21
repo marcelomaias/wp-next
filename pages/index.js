@@ -1,35 +1,24 @@
-import { gql } from 'graphql-request'
 import { client } from '@/lib/client'
 import Layout from '@/components/Layout'
+import { GET_HOME_CONTENT } from '@/graphql/queries'
+import { handleBlocks } from '@/lib/handleBlocks'
+import { BlockRenderer } from '../components/BlockRenderer'
 
-const theQuery = gql`
-  query NewQuery {
-    pages {
-      nodes {
-        title
-        uri
-      }
-    }
-  }
-`
-
-export default function Home({ res }) {
-  const pages = res.pages.nodes
+export default function Home({ blocks }) {
+  console.log('BLOCKS: ', blocks)
   return (
     <Layout>
-      {pages.map(page => (
-        <h2 key={page.title}>{page.title}</h2>
-      ))}
+      <BlockRenderer blocks={blocks} />
     </Layout>
   )
 }
 
 export async function getServerSideProps() {
-  const res = await client.request(theQuery)
+  const res = await client.request(GET_HOME_CONTENT)
 
-  console.log('DATA: ', res)
+  const blocks = handleBlocks(res.nodeByUri.blocksJSON)
 
   return {
-    props: { res },
+    props: { blocks },
   }
 }

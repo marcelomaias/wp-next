@@ -1,0 +1,34 @@
+.coreCover {
+    position: relative;
+    // height: 100vh;
+    padding-top: 340px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        object-fit: cover;
+    }
+    h2 {
+        font-size: 4rem;
+        margin: 0;
+    }
+    h3 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    p {
+        max-width: 760px;
+        font-weight: 200;
+        // padding: 1rem 0 1.2rem 0;
+        letter-spacing: .5px;
+    }
+    .columns {
+        margin-top: 80px;
+    }
+}
+.coreCoverInner {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
