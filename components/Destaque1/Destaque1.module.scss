@@ -1,0 +1,14 @@
+.Destaque1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 100px;
+    > div {
+       display: flex;
+       gap: 30px; 
+    }
+    h4 {
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+    }
+}

@@ -8,7 +8,7 @@ function Header() {
 
   const loading = !data && !error
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <section className={style.Header}>

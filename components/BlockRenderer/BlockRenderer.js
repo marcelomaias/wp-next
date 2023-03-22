@@ -45,7 +45,7 @@ export function BlockRenderer({ blocks }) {
         )
       }
       case 'core/buttons': {
-        console.log('Buttons Block: ', block)
+        // console.log('Buttons Block: ', block)
         const { layout } = block.attributes
         return (
           <Buttons key={block.id} layout={layout}>
@@ -54,7 +54,7 @@ export function BlockRenderer({ blocks }) {
         )
       }
       case 'core/button': {
-        console.log('Button Block: ', block)
+        // console.log('Button Block: ', block)
         const { text, url, linkTarget, backgroundColor, textColor } =
           block.attributes
         return (
@@ -69,7 +69,7 @@ export function BlockRenderer({ blocks }) {
         )
       }
       case 'core/columns': {
-        console.log('Columns Block: ', block)
+        // console.log('Columns Block: ', block)
         const { isStackedOnMobile, anchor } = block.attributes
 
         return (
@@ -83,7 +83,7 @@ export function BlockRenderer({ blocks }) {
         )
       }
       case 'core/column': {
-        console.log('Column Block: ', block)
+        // console.log('Column Block: ', block)
         // const { isStackedOnMobile } = block.attributes
 
         return (

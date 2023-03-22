@@ -20,6 +20,66 @@ export const GET_HOME_CONTENT = gql`
         id
         title
         blocksJSON
+        destaque1 {
+          titulo1
+          titulo2
+          texto1
+          texto2
+          icone1 {
+            mediaItemUrl
+          }
+          icone2 {
+            mediaItemUrl
+          }
+        }
+        destaque2 {
+          title
+          texto
+          thumbmail {
+            mediaItemUrl
+          }
+          video
+          authorName
+          authorTitle
+          authorPicture {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+    destinos {
+      edges {
+        node {
+          id
+          title
+          uri
+          destinoFieldGroup {
+            image {
+              altText
+              mediaItemUrl
+            }
+          }
+          places {
+            edges {
+              node {
+                id
+                name
+                uri
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+export const GET_ABOUT_CONTENT = gql`
+  query get_about_content {
+    nodeByUri(uri: "/about") {
+      ... on Page {
+        id
+        title
+        blocksJSON
       }
     }
   }
