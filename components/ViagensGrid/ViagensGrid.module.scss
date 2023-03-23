@@ -1,0 +1,16 @@
+.ViagensGrid {
+    margin: 100px auto;
+    h2 {
+        margin-bottom: 30px;
+    }
+}
+.Subtitle {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.Grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import handleLinks from '@/lib/handleLinks'
 import style from './Destaque2.module.scss'
-import Link from 'next/link'
+import { MdPlayCircle } from 'react-icons/md'
 
 function Destaque2({ destaque2 }) {
   const {
@@ -49,6 +49,7 @@ function Destaque2({ destaque2 }) {
                 (max-width: 900px) 600px,
                 600px'
             />
+            <MdPlayCircle className={style.playIcon} />
           </a>
         </div>
       </div>

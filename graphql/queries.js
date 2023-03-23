@@ -52,6 +52,7 @@ export const GET_HOME_CONTENT = gql`
         node {
           id
           title
+          excerpt
           uri
           destinoFieldGroup {
             image {

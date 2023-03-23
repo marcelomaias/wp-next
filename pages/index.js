@@ -6,6 +6,7 @@ import { BlockRenderer } from '../components/BlockRenderer'
 import DestinosGrid from '@/components/DestinosGrid/DestinosGrid'
 import Destaque1 from '@/components/Destaque1/Destaque1'
 import Destaque2 from '@/components/Destaque2/Destaque2'
+import ViagensGrid from '@/components/ViagensGrid/ViagensGrid'
 
 export default function Home({ blocks, destinos, destaque1, destaque2 }) {
   // console.log('HOME BLOCKS: ', blocks)
@@ -16,6 +17,7 @@ export default function Home({ blocks, destinos, destaque1, destaque2 }) {
       <DestinosGrid destinos={destinos} />
       <Destaque1 destaque1={destaque1} />
       <Destaque2 destaque2={destaque2} />
+      <ViagensGrid destinos={destinos} />
     </Layout>
   )
 }
