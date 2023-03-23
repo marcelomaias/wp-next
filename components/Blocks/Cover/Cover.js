@@ -1,9 +1,8 @@
 import Image from 'next/image'
-import style from './Cover.module.scss'
 
 export const Cover = ({ children, url }) => {
   return (
-    <div className={`cover ${style.coreCover}`}>
+    <div className='coreCover'>
       <Image
         src={url}
         fill
@@ -13,7 +12,7 @@ export const Cover = ({ children, url }) => {
         (max-width: 900px) 800px,
         1920px'
       />
-      <div className={`container ${style.coreCoverInner}`}>{children}</div>
+      <div className='container coreCoverInner'>{children}</div>
     </div>
   )
 }

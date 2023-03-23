@@ -45,6 +45,12 @@ export const GET_HOME_CONTENT = gql`
             mediaItemUrl
           }
         }
+        destaque4 {
+          dest4Tex1
+          dest4Tex2
+          dest4Tit1
+          dest4Tit2
+        }
       }
     }
     destinos {

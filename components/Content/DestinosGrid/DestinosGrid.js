@@ -1,4 +1,4 @@
-import DestinosCard from '@/components/DestinosCard/DestinosCard'
+import DestinosCard from '@/components/Content/DestinosCard/DestinosCard'
 import style from './DestinosGrid.module.scss'
 
 function DestinosGrid({ destinos }) {

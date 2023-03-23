@@ -1,8 +1,8 @@
-import ViagensCard from '../ViagensCard/ViagensCard'
+import ViagensCard from '@/components/Content/ViagensCard/ViagensCard'
 import style from './ViagensGrid.module.scss'
 
 function ViagensGrid({ destinos }) {
-  console.log(destinos)
+  // console.log(destinos)
 
   const list = destinos.slice(0, 3)
 

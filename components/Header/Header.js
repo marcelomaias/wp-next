@@ -1,7 +1,6 @@
 import useSWR from 'swr'
 import { GET_MAIN_NAV } from '@/graphql/queries'
 import Link from 'next/link'
-import style from './Header.module.scss'
 
 function Header() {
   const { data, error } = useSWR(GET_MAIN_NAV)
@@ -11,19 +10,15 @@ function Header() {
   // console.log(data)
 
   return (
-    <section className={style.Header}>
+    <section className='headerArea'>
       <div className='container'>
-        <header>
+        <header className='header'>
           <div className='logo'>Logo</div>
           <div className='nav'>
             {loading
               ? 'Loading...'
               : data.menuItems.edges.map(item => (
-                  <Link
-                    className={style.mainNavLink}
-                    href={item.node.uri}
-                    key={item.node.label}
-                  >
+                  <Link href={item.node.uri} key={item.node.label}>
                     {item.node.label}
                   </Link>
                 ))}
