@@ -13,12 +13,19 @@ function Destaque2({ destaque2 }) {
     authorTitle,
     authorPicture,
   } = destaque2
+
+  const chars = title.split('').map((char, index) => (
+    <span key={index} className='char'>
+      {char}
+    </span>
+  ))
+
   return (
     <div className={style.Destaque2Container}>
       <div className={`container ${style.Destaque2}`}>
         <div className='col'>
           <div>
-            <h2>{title}</h2>
+            <h2>{chars}</h2>
             <div
               className='text'
               dangerouslySetInnerHTML={{ __html: handleLinks(texto) }}

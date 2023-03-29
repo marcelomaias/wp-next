@@ -7,7 +7,7 @@ function DestinosCard({ destino }) {
   //   console.log(destino)
   const { destinoFieldGroup, title, uri, places } = destino.node
   return (
-    <Link href={uri} className={style.DestinoCard}>
+    <Link href={uri} className={`destino ${style.DestinoCard}`}>
       <Image
         className={style.DestinoCardImage}
         src={destinoFieldGroup.image.mediaItemUrl}

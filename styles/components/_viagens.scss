@@ -1,15 +1,22 @@
-.ViagensGrid {
+.viagensGrid {
     margin: 100px auto;
+    position: relative;
     h2 {
         margin-bottom: 30px;
     }
+    .stamp {
+        position: absolute;
+        right: 10%;
+        top: -18%;
+        z-index: 10;
+    }
 }
-.Subtitle {
+.subtitle {
     font-size: .9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.Grid {
+.grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;

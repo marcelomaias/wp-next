@@ -1,20 +1,8 @@
 import { SWRConfig } from 'swr'
 import { client } from '@/lib/client'
-import { Abril_Fatface, Roboto } from 'next/font/google'
+import { font_text, font_title } from '@/lib/google-fonts'
 
 import '@/styles/main.scss'
-
-const font_title = Abril_Fatface({
-  weight: ['400'],
-  subsets: ['latin'],
-  variable: '--font-title',
-})
-
-const font_text = Roboto({
-  weight: ['300', '700'],
-  subsets: ['latin'],
-  variable: '--font-text',
-})
 
 const fetcher = (query, variables) => client.request(query, variables)
 
