@@ -1,6 +1,6 @@
 import { client } from '@/lib/client'
 import Layout from '@/components/Layout'
-import { GET_HOME_CONTENT } from '@/graphql/queries'
+import { GET_PAGES_CONTENT, GET_HOME_CONTENT } from '@/graphql/queries'
 import { handleBlocks } from '@/lib/handleBlocks'
 import { BlockRenderer } from '../components/BlockRenderer'
 import DestinosGrid from '@/components/Content/DestinosGrid/DestinosGrid'
@@ -32,14 +32,20 @@ export default function Home({
   )
 }
 
-export async function getStaticProps() {
-  const res = await client.request(GET_HOME_CONTENT)
+export async function getStaticProps({ params }) {
+  const uri = '/'
 
-  const blocks = handleBlocks(res.nodeByUri.blocksJSON)
-  const destinos = res.destinos.edges
-  const destaque1 = res.nodeByUri.destaque1
-  const destaque2 = res.nodeByUri.destaque2
-  const destaque4 = res.nodeByUri.destaque4
+  const variables = {
+    uri,
+  }
+  const pages = await client.request(GET_PAGES_CONTENT, variables)
+  const home = await client.request(GET_HOME_CONTENT)
+
+  const blocks = handleBlocks(pages.nodeByUri.blocksJSON)
+  const destinos = home.destinos.edges
+  const destaque1 = home.nodeByUri.destaque1
+  const destaque2 = home.nodeByUri.destaque2
+  const destaque4 = home.nodeByUri.destaque4
 
   return {
     props: { blocks, destinos, destaque1, destaque2, destaque4 },

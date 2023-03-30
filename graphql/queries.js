@@ -17,9 +17,6 @@ export const GET_HOME_CONTENT = gql`
   query get_home_content {
     nodeByUri(uri: "/") {
       ... on Page {
-        id
-        title
-        blocksJSON
         destaque1 {
           titulo1
           titulo2
@@ -87,6 +84,32 @@ export const GET_ABOUT_CONTENT = gql`
         id
         title
         blocksJSON
+      }
+    }
+  }
+`
+export const GET_PAGES_CONTENT = gql`
+  query get_pages_content($uri: String!) {
+    nodeByUri(uri: $uri) {
+      ... on Page {
+        id
+        title
+        blocksJSON
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+      ... on Destino {
+        id
+        title
+        blocksJSON
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
       }
     }
   }
