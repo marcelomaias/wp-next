@@ -4,12 +4,15 @@ import style from './ViagensCard.module.scss'
 import { MdArrowCircleRight } from 'react-icons/md'
 
 function ViagensCard({ destino }) {
-  const { destinoFieldGroup, title, uri, excerpt } = destino.node
+  const { destinoFieldGroup, title, uri, excerpt, featuredImage } = destino.node
   return (
     <Link href={uri} className={style.ViagensCard}>
       <Image
         className={style.ViagensCardImage}
-        src={destinoFieldGroup.image.mediaItemUrl}
+        src={
+          destinoFieldGroup?.image?.mediaItemUrl ||
+          featuredImage?.node.sourceUrl
+        }
         fill
         alt='Destino'
         sizes='

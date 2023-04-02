@@ -8,10 +8,8 @@ const fetcher = (query, variables) => client.request(query, variables)
 
 export default function App({ Component, pageProps }) {
   return (
-    <SWRConfig value={{ fetcher }}>
-      <main className={`${font_text.variable} ${font_title.variable} `}>
-        <Component {...pageProps} />
-      </main>
-    </SWRConfig>
+    <main className={`${font_text.variable} ${font_title.variable} `}>
+      <Component {...pageProps} />
+    </main>
   )
 }

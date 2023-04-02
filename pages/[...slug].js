@@ -4,17 +4,26 @@ import { GET_PAGES_CONTENT } from '@/graphql/queries'
 import { handleBlocks } from '@/lib/handleBlocks'
 import { BlockRenderer } from '@/components/BlockRenderer'
 import Layout from '@/components/Layout'
+import { PageWrapper } from '@/context/pageContext'
 
-function SingleDestino(props) {
+function SinglePage(props) {
   console.log('PAGE_PROPS: ', props)
   return (
-    <Layout mainNav={props.mainNav}>
-      <BlockRenderer blocks={props.blocks} />
-    </Layout>
+    <PageWrapper
+      value={{
+        mainNav: props.mainNav,
+        title: props.title,
+        featImage: props.featImage,
+      }}
+    >
+      <Layout>
+        <BlockRenderer blocks={props.blocks} />
+      </Layout>
+    </PageWrapper>
   )
 }
 
-export default SingleDestino
+export default SinglePage
 
 export const getStaticPaths = async () => {
   const res = await client.request(gql`
@@ -51,7 +60,6 @@ export async function getStaticProps({ params }) {
   }
 
   const res = await client.request(GET_PAGES_CONTENT, variables)
-
   const mainNav = res.menuItems.edges
 
   return {

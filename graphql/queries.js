@@ -57,6 +57,11 @@ export const GET_HOME_CONTENT = gql`
           title
           excerpt
           uri
+          featuredImage {
+            node {
+              sourceUrl
+            }
+          }
           destinoFieldGroup {
             image {
               altText
@@ -73,17 +78,6 @@ export const GET_HOME_CONTENT = gql`
             }
           }
         }
-      }
-    }
-  }
-`
-export const GET_ABOUT_CONTENT = gql`
-  query get_about_content {
-    nodeByUri(uri: "/about") {
-      ... on Page {
-        id
-        title
-        blocksJSON
       }
     }
   }

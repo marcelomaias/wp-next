@@ -1,12 +1,8 @@
-import useSWR from 'swr'
-import { GET_MAIN_NAV } from '@/graphql/queries'
+import { usePageContext } from '@/context/pageContext'
 import Link from 'next/link'
-import Loading from '../Loading/Loading'
 
-function Header({ mainNav }) {
-  // const { data, error } = useSWR(GET_MAIN_NAV)
-
-  // const loading = !data && !error
+function Header() {
+  const { mainNav } = usePageContext()
 
   return (
     <section className='headerArea'>

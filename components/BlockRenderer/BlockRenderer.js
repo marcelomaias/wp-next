@@ -6,6 +6,7 @@ import { Buttons } from '../Blocks/Buttons/Buttons'
 import { Button } from '../Blocks/Button/Button'
 import { Columns } from '../Blocks/Columns/Columns'
 import { Column } from '../Blocks/Column/Column'
+import { Title } from '../Blocks/Title/Title'
 
 export function BlockRenderer({ blocks }) {
   return blocks.map(block => {
@@ -90,6 +91,19 @@ export function BlockRenderer({ blocks }) {
           <Column key={block.id}>
             <BlockRenderer blocks={block.innerBlocks} />
           </Column>
+        )
+      }
+      case 'core/post-title': {
+        // console.log('HEADING Block: ', block)
+        const { content, textAlign, textColor, level } = block.attributes
+        return (
+          <Title
+            key={block.id}
+            content={content}
+            textColor={textColor}
+            textAlign={textAlign}
+            level={level}
+          />
         )
       }
       default: {

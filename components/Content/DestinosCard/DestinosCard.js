@@ -4,13 +4,16 @@ import style from './DestinoCard.module.scss'
 import { MdLocationPin } from 'react-icons/md'
 
 function DestinosCard({ destino }) {
-  //   console.log(destino)
-  const { destinoFieldGroup, title, uri, places } = destino.node
+  const { destinoFieldGroup, title, uri, places, featuredImage } = destino.node
+
   return (
     <Link href={uri} className={`destino ${style.DestinoCard}`}>
       <Image
         className={style.DestinoCardImage}
-        src={destinoFieldGroup.image.mediaItemUrl}
+        src={
+          destinoFieldGroup?.image?.mediaItemUrl ||
+          featuredImage?.node.sourceUrl
+        }
         fill
         alt='Destino'
         sizes='

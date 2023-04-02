@@ -1,11 +1,14 @@
+import { usePageContext } from '@/context/pageContext'
 import Image from 'next/image'
 
 export const Cover = ({ children, url }) => {
+  const { featImage } = usePageContext()
+
   return (
     <div className='coreCover'>
-      {!!url && (
+      {(!!url || !!featImage) && (
         <Image
-          src={url}
+          src={url || featImage}
           fill
           alt='Cover'
           sizes='
