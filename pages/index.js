@@ -16,11 +16,12 @@ export default function Home({
   destaque1,
   destaque2,
   destaque4,
+  mainNav,
 }) {
   // console.log('HOME BLOCKS: ', blocks)
   // console.log('DESTAQUE4: ', destaque4)
   return (
-    <Layout>
+    <Layout mainNav={mainNav}>
       <BlockRenderer blocks={blocks} />
       <DestinosGrid destinos={destinos} />
       <Destaque1 destaque1={destaque1} />
@@ -46,8 +47,11 @@ export async function getStaticProps({ params }) {
   const destaque1 = home.nodeByUri.destaque1
   const destaque2 = home.nodeByUri.destaque2
   const destaque4 = home.nodeByUri.destaque4
+  const mainNav = pages.menuItems.edges
+
+  // console.log('DATA: ', pages)
 
   return {
-    props: { blocks, destinos, destaque1, destaque2, destaque4 },
+    props: { blocks, destinos, destaque1, destaque2, destaque4, mainNav },
   }
 }

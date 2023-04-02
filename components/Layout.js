@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 
-function Layout({ children }) {
+function Layout({ children, mainNav }) {
   const main = useRef()
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Layout({ children }) {
 
   return (
     <div ref={main}>
-      <Header />
+      <Header mainNav={mainNav} />
       {children}
       <Footer />
     </div>

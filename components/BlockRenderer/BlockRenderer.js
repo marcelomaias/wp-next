@@ -11,7 +11,7 @@ export function BlockRenderer({ blocks }) {
   return blocks.map(block => {
     switch (block.name) {
       case 'core/cover': {
-        console.log('COVER Block: ', block)
+        // console.log('COVER Block: ', block)
         const { url } = block.attributes
         return (
           <Cover key={block.id} url={url}>

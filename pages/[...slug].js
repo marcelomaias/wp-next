@@ -6,10 +6,9 @@ import { BlockRenderer } from '@/components/BlockRenderer'
 import Layout from '@/components/Layout'
 
 function SingleDestino(props) {
-  console.log('featImage:', props.featImage)
+  console.log('PAGE_PROPS: ', props)
   return (
-    <Layout>
-      <h1>{props.title}</h1>
+    <Layout mainNav={props.mainNav}>
       <BlockRenderer blocks={props.blocks} />
     </Layout>
   )
@@ -41,8 +40,6 @@ export const getStaticPaths = async () => {
     },
   }))
 
-  // console.log('PATHS ', paths)
-
   return { paths, fallback: false }
 }
 
@@ -54,13 +51,15 @@ export async function getStaticProps({ params }) {
   }
 
   const res = await client.request(GET_PAGES_CONTENT, variables)
-  console.log('DATA: ', res)
+
+  const mainNav = res.menuItems.edges
 
   return {
     props: {
       title: res.nodeByUri.title,
       blocks: handleBlocks(res.nodeByUri.blocksJSON),
       featImage: res.nodeByUri.featuredImage?.node.mediaItemUrl || null,
+      mainNav,
     },
   }
 }

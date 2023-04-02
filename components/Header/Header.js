@@ -3,10 +3,10 @@ import { GET_MAIN_NAV } from '@/graphql/queries'
 import Link from 'next/link'
 import Loading from '../Loading/Loading'
 
-function Header() {
-  const { data, error } = useSWR(GET_MAIN_NAV)
+function Header({ mainNav }) {
+  // const { data, error } = useSWR(GET_MAIN_NAV)
 
-  const loading = !data && !error
+  // const loading = !data && !error
 
   return (
     <section className='headerArea'>
@@ -23,15 +23,11 @@ function Header() {
             </svg>
           </div>
           <div className='nav'>
-            {loading ? (
-              <Loading />
-            ) : (
-              data.menuItems.edges.map(item => (
-                <Link href={item.node.uri} key={item.node.label}>
-                  {item.node.label}
-                </Link>
-              ))
-            )}
+            {mainNav.map(item => (
+              <Link href={item.node.uri} key={item.node.label}>
+                {item.node.label}
+              </Link>
+            ))}
           </div>
           <div className='language'>EN</div>
         </header>

@@ -112,5 +112,13 @@ export const GET_PAGES_CONTENT = gql`
         }
       }
     }
+    menuItems(where: { location: HEADLESS_PRIMARY_MENU }) {
+      edges {
+        node {
+          label
+          uri
+        }
+      }
+    }
   }
 `
