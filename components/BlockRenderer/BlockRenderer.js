@@ -7,6 +7,7 @@ import { Button } from '../Blocks/Button/Button'
 import { Columns } from '../Blocks/Columns/Columns'
 import { Column } from '../Blocks/Column/Column'
 import { Title } from '../Blocks/Title/Title'
+import { YouTubeBlock } from '../Blocks/YouTubeBlock/YouTubeBlock'
 
 export function BlockRenderer({ blocks }) {
   return blocks.map(block => {
@@ -105,6 +106,10 @@ export function BlockRenderer({ blocks }) {
             level={level}
           />
         )
+      }
+      case 'core/embed': {
+        const { url } = block.attributes
+        return <YouTubeBlock key={block.id} url={url} />
       }
       default: {
         return null

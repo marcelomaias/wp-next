@@ -4,10 +4,12 @@ import React from 'react'
 
 export const Paragraph = ({ content, textAlign, color }) => {
   return (
-    <p
-      dangerouslySetInnerHTML={{ __html: handleLinks(content) }}
-      className={`${getTextAlign(textAlign)}`}
-      style={{ color: color }}
-    />
+    <div className='container'>
+      <p
+        dangerouslySetInnerHTML={{ __html: handleLinks(content) }}
+        className={`${getTextAlign(textAlign)}`}
+        style={{ color: color }}
+      />
+    </div>
   )
 }

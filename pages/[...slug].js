@@ -7,7 +7,7 @@ import Layout from '@/components/Layout'
 import { PageWrapper } from '@/context/pageContext'
 
 function SinglePage(props) {
-  console.log('PAGE_PROPS: ', props)
+  // console.log('PAGE_PROPS: ', props)
   return (
     <PageWrapper
       value={{
@@ -16,7 +16,7 @@ function SinglePage(props) {
         featImage: props.featImage,
       }}
     >
-      <Layout>
+      <Layout mainNav={props.mainNav}>
         <BlockRenderer blocks={props.blocks} />
       </Layout>
     </PageWrapper>

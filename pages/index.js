@@ -52,8 +52,6 @@ export async function getStaticProps({ params }) {
   const mainNav = pages.menuItems.edges
   const featImage = pages.nodeByUri.featuredImage?.node.mediaItemUrl || null
 
-  console.log('FEAT: ', featImage)
-
   return {
     props: {
       blocks,

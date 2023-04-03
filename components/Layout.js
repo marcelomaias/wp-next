@@ -70,7 +70,7 @@ function Layout({ children, mainNav }) {
   }, [])
 
   return (
-    <div ref={main}>
+    <div id='main-context' ref={main}>
       <Header mainNav={mainNav} />
       {children}
       <Footer />

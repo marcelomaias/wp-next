@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMGS_URL],
+    domains: ['headspin.local', 'www.youtube.com'],
   },
 }
 
