@@ -35,8 +35,10 @@ export default function Home({
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps() {
   const uri = '/'
+
+  // console.log('params: ', params)
 
   const variables = {
     uri,

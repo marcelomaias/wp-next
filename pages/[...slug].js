@@ -43,7 +43,12 @@ export const getStaticPaths = async () => {
     }
   `)
 
-  const paths = [...res.pages.nodes, ...res.destinos.nodes].map(destino => ({
+  // FILTER THE "/" PATH OUT TO AVOID CONFLICT WIHT "/" FROM HOMEPAGE
+  const pagesPaths = res.pages.nodes.filter(path => {
+    return path.uri !== '/'
+  })
+
+  const paths = [...pagesPaths, ...res.destinos.nodes].map(destino => ({
     params: {
       slug: destino.uri.substring(1, destino.uri.length - 1).split('/'),
     },
@@ -54,6 +59,8 @@ export const getStaticPaths = async () => {
 
 export async function getStaticProps({ params }) {
   const uri = `/${params.slug.join('/')}/`
+
+  console.log('params: ', params)
 
   const variables = {
     uri,
