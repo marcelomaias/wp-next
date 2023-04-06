@@ -76,5 +76,6 @@ export async function getStaticProps({ params }) {
       featImage: res.nodeByUri.featuredImage?.node.mediaItemUrl || null,
       mainNav,
     },
+    revalidate: 10,
   }
 }

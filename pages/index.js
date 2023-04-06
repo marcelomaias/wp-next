@@ -64,5 +64,6 @@ export async function getStaticProps() {
       mainNav,
       featImage,
     },
+    revalidate: 10,
   }
 }
