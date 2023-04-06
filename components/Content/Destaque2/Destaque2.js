@@ -2,6 +2,8 @@ import Image from 'next/image'
 import handleLinks from '@/lib/handleLinks'
 import style from './Destaque2.module.scss'
 import { MdPlayCircle } from 'react-icons/md'
+import { gsap } from 'gsap'
+import { useEffect, useRef } from 'react'
 
 function Destaque2({ destaque2 }) {
   const {
@@ -20,8 +22,30 @@ function Destaque2({ destaque2 }) {
     </span>
   ))
 
+  const destaque2Ctx = useRef()
+
+  useEffect(() => {
+    const ctx = gsap.context(self => {
+      gsap.from('.char', {
+        y: 150,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.25,
+        ease: 'bounce.out',
+        scrollTrigger: {
+          // markers: true,
+          trigger: '.char',
+          start: 'top bottom',
+          end: 'top top',
+          toggleActions: 'play reset play reset',
+        },
+      })
+    }, destaque2Ctx) // <- Scope!
+    return () => ctx.revert() // <- Cleanup!
+  }, [])
+
   return (
-    <div className={style.Destaque2Container}>
+    <div ref={destaque2Ctx} className={style.Destaque2Container}>
       <div className={`container ${style.Destaque2}`}>
         <div className='col'>
           <div>

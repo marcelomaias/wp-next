@@ -6,7 +6,7 @@ import { MdArrowCircleRight } from 'react-icons/md'
 function ViagensCard({ destino }) {
   const { destinoFieldGroup, title, uri, excerpt, featuredImage } = destino.node
   return (
-    <Link href={uri} className={style.ViagensCard}>
+    <Link href={uri} className={`${style.ViagensCard} viagemCard`}>
       <Image
         className={style.ViagensCardImage}
         src={
