@@ -1,6 +1,7 @@
 import { client } from '@/lib/client'
 import Layout from '@/components/Layout'
 import { GET_PAGES_CONTENT, GET_HOME_CONTENT } from '@/graphql/queries'
+
 import { handleBlocks } from '@/lib/handleBlocks'
 import { BlockRenderer } from '../components/BlockRenderer'
 import DestinosGrid from '@/components/Content/DestinosGrid/DestinosGrid'
@@ -10,9 +11,11 @@ import Destaque3 from '@/components/Content/Destaque3/Destaque3'
 import Destaque4 from '@/components/Content/Destaque4/Destaque4'
 import ViagensGrid from '@/components/Content/ViagensGrid/ViagensGrid'
 import { PageWrapper } from '@/context/pageContext'
+import Carousel from '@/components/Carousel/Carousel'
 
 export default function Home({
   blocks,
+  sliders,
   destinos,
   destaque1,
   destaque2,
@@ -20,10 +23,13 @@ export default function Home({
   mainNav,
   featImage,
 }) {
+  console.log(sliders)
   return (
     <PageWrapper value={{ mainNav, featImage }}>
       <Layout>
-        <BlockRenderer blocks={blocks} />
+        <Carousel sliders={sliders} />
+        {/* <BlockRenderer blocks={blocks} /> */}
+
         <DestinosGrid destinos={destinos} />
         <Destaque1 destaque1={destaque1} />
         <Destaque2 destaque2={destaque2} />
@@ -46,6 +52,7 @@ export async function getStaticProps() {
   const pages = await client.request(GET_PAGES_CONTENT, variables)
   const home = await client.request(GET_HOME_CONTENT)
 
+  const sliders = home.sliders.nodes
   const blocks = handleBlocks(pages.nodeByUri.blocksJSON)
   const destinos = home.destinos.edges
   const destaque1 = home.nodeByUri.destaque1
@@ -56,6 +63,7 @@ export async function getStaticProps() {
 
   return {
     props: {
+      sliders,
       blocks,
       destinos,
       destaque1,

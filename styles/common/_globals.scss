@@ -1,5 +1,10 @@
 :root {
   --site-width: 1280px;
+  --swiper-navigation-color: white !important;
+  --swiper-theme-color: white !important;
+  --swiper-navigation-size: 48px !important;
+  --swiper-pagination-bullet-size: 16px !important;
+  --swiper-pagination-bullet-horizontal-gap: 8px !important;
 }
 
 h1,
@@ -7,6 +12,12 @@ h2,
 .char {
   font-family: var(--font-title);
 }
+.letter {
+  white-space: pre;
+  display: inline-block;
+  font-family: var(--font-title);
+}
+
 h1,
 h2 {
   font-size: 3rem;
@@ -46,6 +57,10 @@ p {
   text-align: right;
 }
 
+.swiper {
+  height: 100vh;
+}
+
 .cover .columns {
   margin-top: 80px;
 }
@@ -68,3 +83,39 @@ p {
 //     }
 //   }
 // }
+
+.swiper-slide {
+  background-color: #000;
+  .content {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    left: 10%;
+    max-width: 70%;
+    color: #fff;
+    z-index: 1;
+
+    h2 {
+      font-size: 4rem;
+    }
+    font-size: 1.2rem;
+    .sliderText {
+      font-weight: 200;
+      margin: 1rem 0;
+      letter-spacing: 0.5px;
+      max-width: 760px;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  img {
+    clip-path: circle(50% at 70% 50%);
+  }
+}
