@@ -66,7 +66,7 @@ function Carousel({ sliders }) {
       slidesPerView={1}
       autoplay={{
         delay: 5000,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       }}
       navigation
       pagination={{ clickable: true }}
