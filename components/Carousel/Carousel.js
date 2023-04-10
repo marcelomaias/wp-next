@@ -44,12 +44,16 @@ function Carousel({ sliders }) {
         ease: Back.easeOut,
         stagger: 0.02,
       })
-      tl.from(text, {
-        x: '25%',
-        opacity: 0,
-        duration: 0.4,
-        ease: Back.easeOut,
-      })
+      tl.from(
+        text,
+        {
+          x: '25%',
+          opacity: 0,
+          duration: 0.4,
+          ease: Back.easeOut,
+        },
+        '1'
+      )
     }, carouselCtx) // <- Scope!
     return () => ctx.revert() // <- Cleanup!
   }, [tl])
@@ -60,10 +64,10 @@ function Carousel({ sliders }) {
       modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
       slidesPerView={1}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
+      // autoplay={{
+      //   delay: 5000,
+      //   disableOnInteraction: false,
+      // }}
       navigation
       pagination={{ clickable: true }}
       onSlideChange={() => {
