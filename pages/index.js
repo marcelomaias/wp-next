@@ -23,7 +23,7 @@ export default function Home({
   mainNav,
   featImage,
 }) {
-  console.log(sliders)
+  // console.log(sliders)
   return (
     <PageWrapper value={{ mainNav, featImage }}>
       <Layout>

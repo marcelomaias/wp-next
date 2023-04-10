@@ -22,7 +22,7 @@ function Destaque2({ destaque2 }) {
     </span>
   ))
 
-  console.log('CHARS: ', chars)
+  // console.log('CHARS: ', chars)
 
   const destaque2Ctx = useRef()
 

@@ -52,7 +52,7 @@ function Carousel({ sliders }) {
       })
     }, carouselCtx) // <- Scope!
     return () => ctx.revert() // <- Cleanup!
-  }, [])
+  }, [tl])
 
   return (
     <Swiper
@@ -60,14 +60,14 @@ function Carousel({ sliders }) {
       modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
       slidesPerView={1}
-      //   autoplay={{
-      //     delay: 2500,
-      //     disableOnInteraction: false,
-      //   }}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
       navigation
       pagination={{ clickable: true }}
       onSlideChange={() => {
-        console.log('slide Changed')
+        // console.log('slide Changed')
         tl.restart()
       }}
       onSwiper={swiper => console.log(swiper)}
