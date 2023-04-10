@@ -64,10 +64,10 @@ function Carousel({ sliders }) {
       modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
       slidesPerView={1}
-      // autoplay={{
-      //   delay: 5000,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
       navigation
       pagination={{ clickable: true }}
       onSlideChange={() => {
