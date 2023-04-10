@@ -30,15 +30,25 @@ function Carousel({ sliders }) {
 
   useEffect(() => {
     const ctx = gsap.context(self => {
-      const slider = document.querySelectorAll('.sliderHeading .letter ')
+      const title = document.querySelectorAll('.sliderHeading .letter')
+      const text = document.querySelectorAll('.sliderText')
 
-      tl.from(slider, {
+      // tl.set(title, {
+      //   y: '50%',
+      //   opacity: 0,
+      // })
+      tl.from(title, {
         y: '50%',
         opacity: 0,
         duration: 0.4,
         ease: Back.easeOut,
-        delay: 0,
         stagger: 0.02,
+      })
+      tl.from(text, {
+        x: '25%',
+        opacity: 0,
+        duration: 0.4,
+        ease: Back.easeOut,
       })
     }, carouselCtx) // <- Scope!
     return () => ctx.revert() // <- Cleanup!
@@ -56,7 +66,10 @@ function Carousel({ sliders }) {
       //   }}
       navigation
       pagination={{ clickable: true }}
-      onSlideChange={() => tl.restart()}
+      onSlideChange={() => {
+        console.log('slide Changed')
+        tl.restart()
+      }}
       onSwiper={swiper => console.log(swiper)}
     >
       {sliders.map(slider => (
