@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { MdLocationPin, MdPhone, MdPhoneIphone } from 'react-icons/md'
-import style from './Footer.module.scss'
 
 function Footer() {
   return (
-    <section className={style.Footer}>
+    <section className='Footer'>
       <div className='container'>
         <footer>
           <div className='col'>
@@ -60,22 +59,22 @@ function Footer() {
                 ut sem nulla pharetra diam amet.
               </p>
             </div>
-            <div className={style.ContactBox}>
-              <div className={style.ContactRow}>
+            <div className='ContactBox'>
+              <div className='ContactRow'>
                 <MdLocationPin />
                 <div>
                   <h5>Address:</h5>
                   <p>Street Name, NY 38954</p>
                 </div>
               </div>
-              <div className={style.ContactRow}>
+              <div className='ContactRow'>
                 <MdPhone />
                 <div>
                   <h5>Phone:</h5>
                   <p>5555 5555</p>
                 </div>
               </div>
-              <div className={style.ContactRow}>
+              <div className='ContactRow'>
                 <MdPhoneIphone />
                 <div>
                   <h5>Mobile:</h5>

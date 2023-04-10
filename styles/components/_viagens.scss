@@ -1,23 +1,33 @@
 .viagensGrid {
+  margin: 60px auto;
+  position: relative;
+  @include m.mq(sm) {
     margin: 100px auto;
-    position: relative;
-    h2 {
-        margin-bottom: 30px;
+  }
+  h2 {
+    margin-bottom: 30px;
+  }
+  .stamp {
+    position: absolute;
+    right: 10%;
+    top: -18%;
+    z-index: 10;
+    display: none;
+    @include m.mq(sm) {
+      display: block;
     }
-    .stamp {
-        position: absolute;
-        right: 10%;
-        top: -18%;
-        z-index: 10;
-    }
+  }
 }
 .subtitle {
-    font-size: .9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .grid {
-    display: grid;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  @include m.mq(sm) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+  }
 }

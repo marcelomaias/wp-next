@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import handleLinks from '@/lib/handleLinks'
-import style from './Destaque3.module.scss'
 import { MdPlayCircle } from 'react-icons/md'
 import Link from 'next/link'
 
@@ -15,10 +14,10 @@ function Destaque3({ destaque3 }) {
     authorPicture,
   } = destaque3
   return (
-    <div className={style.Destaque3Container}>
-      <div className={`container ${style.Destaque3}`}>
+    <div className='Destaque3Container'>
+      <div className='container Destaque3'>
         <div className='col'>
-          <a className={style.videoThumb} href='#'>
+          <a className='videoThumb' href='#'>
             <Image
               src={thumbmail.mediaItemUrl}
               alt='Video Thumb'
@@ -29,7 +28,7 @@ function Destaque3({ destaque3 }) {
                 (max-width: 900px) 600px,
                 600px'
             />
-            <MdPlayCircle className={style.playIcon} />
+            <MdPlayCircle className='playIcon' />
           </a>
         </div>
         <div className='col'>
@@ -40,7 +39,7 @@ function Destaque3({ destaque3 }) {
               dangerouslySetInnerHTML={{ __html: handleLinks(texto) }}
             />
           </div>
-          <div className={style.Author}>
+          <div className='Author'>
             <Link className='btn' href={'/'}>
               Explore Agora
             </Link>

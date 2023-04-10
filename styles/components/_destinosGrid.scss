@@ -1,0 +1,20 @@
+.DestinosGrid {
+  margin: 100px auto;
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+.Subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  @include m.mq(sm) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+}

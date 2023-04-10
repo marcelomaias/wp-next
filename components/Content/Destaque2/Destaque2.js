@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import handleLinks from '@/lib/handleLinks'
-import style from './Destaque2.module.scss'
 import { MdPlayCircle } from 'react-icons/md'
 import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
@@ -47,8 +46,8 @@ function Destaque2({ destaque2 }) {
   }, [])
 
   return (
-    <div ref={destaque2Ctx} className={style.Destaque2Container}>
-      <div className={`container ${style.Destaque2}`}>
+    <div ref={destaque2Ctx} className='Destaque2Container'>
+      <div className='container Destaque2'>
         <div className='col'>
           <div>
             <h2>{chars}</h2>
@@ -57,7 +56,7 @@ function Destaque2({ destaque2 }) {
               dangerouslySetInnerHTML={{ __html: handleLinks(texto) }}
             />
           </div>
-          <div className={style.Author}>
+          <div className='Author'>
             <Image
               src={authorPicture.mediaItemUrl}
               alt='Author'
@@ -71,7 +70,7 @@ function Destaque2({ destaque2 }) {
           </div>
         </div>
         <div className='col'>
-          <a className={style.videoThumb} href='#'>
+          <a className='videoThumb' href='#'>
             <Image
               src={thumbmail.mediaItemUrl}
               alt='Video Thumb'
@@ -82,7 +81,7 @@ function Destaque2({ destaque2 }) {
                 (max-width: 900px) 600px,
                 600px'
             />
-            <MdPlayCircle className={style.playIcon} />
+            <MdPlayCircle className='playIcon' />
           </a>
         </div>
       </div>

@@ -1,15 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import style from './DestinoCard.module.scss'
 import { MdLocationPin } from 'react-icons/md'
 
 function DestinosCard({ destino }) {
   const { destinoFieldGroup, title, uri, places, featuredImage } = destino.node
 
   return (
-    <Link href={uri} className={`destino ${style.DestinoCard}`}>
+    <Link href={uri} className='DestinoCard'>
       <Image
-        className={style.DestinoCardImage}
+        className='DestinoCardImage'
         src={
           destinoFieldGroup?.image?.mediaItemUrl ||
           featuredImage?.node.sourceUrl
@@ -17,13 +16,13 @@ function DestinosCard({ destino }) {
         fill
         alt='Destino'
         sizes='
-        (max-width: 500px) 400px,
-        (max-width: 900px) 400px,
-        400px'
+        (max-width: 500px) 300px,
+        (max-width: 900px) 300px,
+        300px'
       />
       <h3>{title}</h3>
       {places.edges.map(place => (
-        <div key={place.node.id} className={style.Location}>
+        <div key={place.node.id} className='Location'>
           <MdLocationPin />
           <span>{place.node.name}</span>
         </div>

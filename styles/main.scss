@@ -1,7 +1,15 @@
+@use './common/mixings' as m;
 @import './common/reset';
 @import './common/globals.scss';
-@import './common//mixings';
 
 @import './blocks/cover';
 @import './components/header';
 @import './components/viagens';
+@import './components/destinoCard';
+@import './components/destinosGrid';
+@import './components/destaque1';
+@import './components/destaque2';
+@import './components/destaque3';
+@import './components/destaque4';
+@import './components/viagensCard';
+@import './components/footer';
