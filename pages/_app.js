@@ -12,6 +12,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>SuperTravel</title>
+        <meta
+          name='description'
+          content='This is a basic Next JS front-end for wordpress Headless.'
+        />
       </Head>
       <main className={`${font_text.variable} ${font_title.variable} `}>
         <Component {...pageProps} />
