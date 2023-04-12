@@ -2,12 +2,14 @@ import { theme } from '@/lib/theme'
 import { Cover } from '../Blocks/Cover/Cover'
 import { Heading } from '../Blocks/Heading/Heading'
 import { Paragraph } from '../Blocks/Paragraph/Paragraph'
+import { ImageBlock } from '../Blocks/Image/Image'
 import { Buttons } from '../Blocks/Buttons/Buttons'
 import { Button } from '../Blocks/Button/Button'
 import { Columns } from '../Blocks/Columns/Columns'
 import { Column } from '../Blocks/Column/Column'
 import { Title } from '../Blocks/Title/Title'
 import { YouTubeBlock } from '../Blocks/YouTubeBlock/YouTubeBlock'
+import Image from 'next/image'
 
 export function BlockRenderer({ blocks }) {
   return blocks.map(block => {
@@ -43,6 +45,19 @@ export function BlockRenderer({ blocks }) {
             content={content}
             textAlign={align}
             color={theme[textColor] || style?.color.text}
+          />
+        )
+      }
+      case 'core/image': {
+        console.log('IMAGE Block: ', block)
+        const { url, title, alt, caption } = block.attributes
+        return (
+          <ImageBlock
+            key={block.id}
+            url={url}
+            title={title}
+            alt={alt}
+            caption={caption}
           />
         )
       }

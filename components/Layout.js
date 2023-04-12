@@ -19,7 +19,7 @@ function Layout({ children, mainNav }) {
         duration: 1.0,
         scrollTrigger: {
           // markers: true,
-          trigger: '.coreCover',
+          trigger: '.headerArea',
           start: '100',
           end: '400',
           scrub: true,

@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import handleLinks from '@/lib/handleLinks'
 import { MdPlayCircle } from 'react-icons/md'
-import { gsap } from 'gsap'
-import { useEffect, useRef } from 'react'
 
 function Destaque2({ destaque2 }) {
   const {
@@ -15,42 +13,12 @@ function Destaque2({ destaque2 }) {
     authorPicture,
   } = destaque2
 
-  const chars = title.split('').map((char, index) => (
-    <span key={index} className='char'>
-      {char}
-    </span>
-  ))
-
-  // console.log('CHARS: ', chars)
-
-  const destaque2Ctx = useRef()
-
-  useEffect(() => {
-    const ctx = gsap.context(self => {
-      gsap.from('.char', {
-        y: 150,
-        opacity: 0,
-        stagger: 0.05,
-        duration: 0.25,
-        ease: 'bounce.out',
-        scrollTrigger: {
-          // markers: true,
-          trigger: '.char',
-          start: 'top bottom',
-          end: 'top top',
-          toggleActions: 'play reset play reset',
-        },
-      })
-    }, destaque2Ctx) // <- Scope!
-    return () => ctx.revert() // <- Cleanup!
-  }, [])
-
   return (
-    <div ref={destaque2Ctx} className='Destaque2Container'>
+    <div className='Destaque2Container'>
       <div className='container Destaque2'>
         <div className='col'>
           <div>
-            <h2>{chars}</h2>
+            <h2>{title}</h2>
             <div
               className='text'
               dangerouslySetInnerHTML={{ __html: handleLinks(texto) }}

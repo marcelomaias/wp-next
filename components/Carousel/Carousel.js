@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { splitChars } from '@/lib/utils'
 
 function Carousel({ sliders }) {
   const carouselCtx = useRef()
@@ -17,16 +18,6 @@ function Carousel({ sliders }) {
   //   })
 
   const tl = gsap.timeline()
-
-  function splitChars(text) {
-    const letters = text.split('').map((char, index) => (
-      <span key={index} className='letter'>
-        {char}
-      </span>
-    ))
-
-    return letters
-  }
 
   useEffect(() => {
     const ctx = gsap.context(self => {
@@ -74,7 +65,6 @@ function Carousel({ sliders }) {
         // console.log('slide Changed')
         tl.restart()
       }}
-      onSwiper={swiper => console.log(swiper)}
     >
       {sliders.map(slider => (
         <SwiperSlide key={slider.id}>
@@ -90,7 +80,7 @@ function Carousel({ sliders }) {
           />
           <div className='content'>
             <h2 className='sliderHeading'>
-              {splitChars(slider.homeSlider.sliderHeading)}
+              {splitChars(slider.homeSlider.sliderHeading, 'letter')}
             </h2>
             <div
               className='sliderText'
